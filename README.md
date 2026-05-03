@@ -1,96 +1,49 @@
 # City Management Simulator
 
-Welcome to the City Management Simulator! This project is a web application that allows users to build and manage a virtual city, including constructing buildings, managing resources, and completing quests.
+A small turn-based city management simulator built as a practice project.  
+Implements a simple server-rendered game loop using Express and EJS.
 
-## Table of Contents
+## Screenshot
 
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Routes](#routes)
-- [Contributing](#contributing)
-- [License](#license)
+![City Simulator Screenshot](screenshots/Screenshot_1.jpg)
 
 ## Features
 
-- Build and upgrade various types of buildings (e.g., factories, farms).
-- Manage city resources such as population, money, and energy.
-- Complete quests to earn rewards.
-- User-friendly interface with EJS templates.
-- Responsive design for various devices.
+- Create and manage a city
+- Build and upgrade structures (e.g. farms, factories)
+- Resource tracking (money, population, energy)
+- Turn-based progression
+- Basic quest/reward mechanics
+- Server-rendered UI with EJS templates
 
-## Technologies
+## Run locally
 
-This project is built using the following technologies:
+```bash
+npm install
+npm start
+```
 
-- **Node.js**: Server-side JavaScript runtime.
-- **Express**: Web framework for Node.js.
-- **EJS**: Templating engine for rendering HTML views.
-- **MongoDB**: NoSQL database for storing city data (optional, if used).
-- **JavaScript**: Programming language for both client-side and server-side code.
-- **HTML/CSS**: For structuring and styling the web pages.
+## Open:
+http://localhost:3000
 
-## Installation
+## Structure
+views/ — EJS templates (UI rendering)
+routes/ / server.js — request handling and game logic
+models/ (if present) — data structures for city/state
+Limitations
+No persistence (state resets on server restart)
+No authentication or multi-user support
+Game logic is simplified (no balancing or scaling)
+No frontend state management (full server render)
+Minimal validation and error handling
 
-1. Clone the repository:
+## Tech
+Node.js
+Express
+EJS
+JavaScript
 
-   ```bash
-   git clone https://github.com/yourusername/city-management-simulator.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd city-management-simulator
-   ```
-
-3. Install the dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. (Optional) Set up your database if you're using MongoDB or any other database.
-
-5. Start the server:
-
-   ```bash
-   npm start
-   ```
-
-6. Open your browser and go to `http://localhost:3000` to access the application.
-
-## Usage
-
-Once the application is running, you can:
-
-- Create a new city.
-- Build different types of buildings.
-- Upgrade existing buildings.
-- Manage resources (money, energy, etc.).
-- Complete quests to earn rewards.
-
-## Routes
-
-| Method | Route                           | Description                          |
-|--------|---------------------------------|--------------------------------------|
-| GET    | `/`                             | Main page of the simulator          |
-| POST   | `/city/:cityName/build`        | Build a new building                |
-| POST   | `/city/:cityName/pass-turn`    | Pass to the next turn               |
-| PATCH  | `/city/:cityName/buildings/:buildingName/upgrade/:level` | Upgrade a building |
-| DELETE | `/city/:cityName/buildings/:buildingName` | Delete a building                   |
-
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements or features, feel free to open an issue or submit a pull request.
-
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature/YourFeature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/YourFeature`
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Notes
+Server-driven application (no SPA frontend)
+State is managed in memory
+Project created as a focused exercise in routing, templating, and basic game logic
